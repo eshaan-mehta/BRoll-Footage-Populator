@@ -132,16 +132,16 @@ class BRollGenerator:
         self.btn_run.pack(fill="x", padx=20, pady=10, ipady=5)
         
     def update_count(self):
-        count = sum(1 for var, clip in self.check_vars if var.get())
+        count = sum(1 for var, _, _ in self.check_vars if var.get())
         total = len(self.check_vars)
         self.lbl_count.config(text=f"Selected: {count} / {total}")
 
     def select_all(self):
-        for var, clip in self.check_vars: var.set(True)
+        for var, _, _ in self.check_vars: var.set(True)
         self.update_count()
 
     def select_none(self):
-        for var, clip in self.check_vars: var.set(False)
+        for var, _, _ in self.check_vars: var.set(False)
         self.update_count()
 
     def scan_media_pool(self):
